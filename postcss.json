@@ -2,8 +2,7 @@
     "use": ["postcss-cssnext"],
     "input": "src/app.css",
     "output": "app/app.css",
-    "autoprefixer": {
+    "postcss-cssnext": {
         "browsers": "last 2 versions"
-    },
-    "postcss-cssnext": {}
+    }
 }
