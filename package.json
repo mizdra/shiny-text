@@ -1,0 +1,25 @@
+{
+  "name": "shiny-text",
+  "version": "0.0.1",
+  "description": "✨Shiny Text✨",
+  "main": "",
+  "scripts": {
+    "build:css": "postcss -c postcss.json --map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mizdra/shiny-text.git"
+  },
+  "author": "mizdra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mizdra/shiny-text/issues"
+  },
+  "homepage": "https://github.com/mizdra/shiny-text#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "postcss": "^5.2.0",
+    "postcss-cli": "^2.6.0",
+    "postcss-cssnext": "^2.8.0"
+  }
+}
