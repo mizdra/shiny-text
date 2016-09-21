@@ -36,7 +36,6 @@ function onLoad() {
         if (e.key === 'Escape' || e.key === 'Enter') {
             shinyText.blur();
         }
-        console.log(e.key);
     });
 
     document.addEventListener('keydown', e => {
