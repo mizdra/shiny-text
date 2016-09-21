@@ -14,6 +14,7 @@
     "watch": "run-p watch:*",
     "clean": "rimraf app",
     "serve": "browser-sync start --server app --files app",
+    "predeploy": "run-s clean build",
     "deploy": "gh-pages -d app",
     "start": "run-p watch serve"
   },
