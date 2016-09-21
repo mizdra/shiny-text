@@ -2,3 +2,9 @@
 ✨Shiny Text✨
 
 See <https://mizdra.github.io/shiny-text>
+
+## Keybind
+- ``e`` or ``i``: Edit text
+- ``Espace`` or ``Enter``: Finish editing
+- ``c``: Change contrast
+- ``s``: Spin text
