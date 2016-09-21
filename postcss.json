@@ -1,9 +1,0 @@
-{
-    "use": ["postcss-cssnext"],
-    "input": "app.css",
-    "output": "bundle.css",
-    "autoprefixer": {
-        "browsers": "last 2 versions"
-    },
-    "postcss-cssnext": {}
-}
