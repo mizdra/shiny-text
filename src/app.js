@@ -1,6 +1,9 @@
 'use strict';
 
 function onLoad() {
+    const toolbar = document.querySelector('.toolbar');
+    const contrastButton = document.querySelector('.contrast-button');
+    const spinButton = document.querySelector('.spin-button');
     const display = document.querySelector('.display');
     const shinyText = document.querySelector('.shiny-text');
 
@@ -31,20 +34,24 @@ function onLoad() {
         classList.add(map[contrastClass]);
     }
 
+    function edit() {
+        toolbar.classList.remove('hidden');
+        shinyText.focus();
+    }
+
+    function finishEditing() {
+        toolbar.classList.add('hidden');
+        shinyText.blur();
+    }
+
+    contrastButton.addEventListener('click', contrast);
+    spinButton.addEventListener('click', spin);
+
+    shinyText.addEventListener('focus', edit);
+
     shinyText.addEventListener('keydown', e => {
-        // unfocus
         if (e.key === 'Escape' || e.key === 'Enter') {
-            shinyText.blur();
-        }
-    });
-
-    document.addEventListener('keydown', e => {
-        if (e.target === shinyText) return;
-
-        // focus
-        if (e.key === 'i' || e.key === 'e') {
-            e.preventDefault();
-            shinyText.focus();
+            finishEditing();
         }
     });
 
@@ -54,8 +61,7 @@ function onLoad() {
         switch (e.key) {
         case 'i':
         case 'e':
-            // focus input box
-            shinyText.focus();
+            edit();
             break;
 
         case 'c':
