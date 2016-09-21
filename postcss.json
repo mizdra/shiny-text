@@ -1,7 +1,7 @@
 {
     "use": ["postcss-cssnext"],
-    "input": "app.css",
-    "output": "bundle.css",
+    "input": "src/app.css",
+    "output": "app/app.css",
     "autoprefixer": {
         "browsers": "last 2 versions"
     },

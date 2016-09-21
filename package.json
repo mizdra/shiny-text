@@ -4,7 +4,19 @@
   "description": "✨Shiny Text✨",
   "main": "",
   "scripts": {
-    "build:css": "postcss -c postcss.json --map"
+    "build:html": "cpx src/index.html app",
+    "build:css" : "postcss -c postcss.json --map",
+    "build:js"  : "cpx src/app.js app",
+    "build"     : "npm-run-all build:*",
+
+    "watch:html": "npm run build:html -- -w",
+    "watch:css" : "npm run build:css -- -w",
+    "watch:js"  : "npm run build:js -- -w",
+    "watch"     : "npm-run-all --parallel watch:*",
+
+    "serve"     : "browser-sync start --server 'app' --files 'app'",
+
+    "start"     : "npm-run-all --parallel watch serve"
   },
   "repository": {
     "type": "git",
@@ -18,6 +30,9 @@
   "homepage": "https://github.com/mizdra/shiny-text#readme",
   "devDependencies": {
     "autoprefixer": "^6.4.1",
+    "browser-sync": "^2.16.0",
+    "cpx": "^1.5.0",
+    "npm-run-all": "^3.1.0",
     "postcss": "^5.2.0",
     "postcss-cli": "^2.6.0",
     "postcss-cssnext": "^2.8.0"
