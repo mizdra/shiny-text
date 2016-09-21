@@ -7,15 +7,15 @@
     "build:html": "cpx src/index.html app",
     "build:css": "postcss -c postcss.json --map",
     "build:js": "cpx src/app.js app",
-    "build": "npm-run-all build:*",
+    "build": "run-p build:*",
     "watch:html": "npm run build:html -- -w",
     "watch:css": "npm run build:css -- -w",
     "watch:js": "npm run build:js -- -w",
-    "watch": "npm-run-all --parallel watch:*",
+    "watch": "run-p watch:*",
     "clean": "rimraf app",
     "serve": "browser-sync start --server 'app' --files 'app'",
     "deploy": "gh-pages -d app",
-    "start": "npm-run-all --parallel watch serve"
+    "start": "run-p watch serve"
   },
   "repository": {
     "type": "git",
