@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "build:html": "cpx src/index.html app",
-    "build:css": "postcss -c postcss.json --map",
+    "build:css": "postcss -c postcss.json",
     "build:js": "cpx src/app.js app",
     "build": "run-p build:*",
     "watch:html": "npm run build:html -- -w",
@@ -13,7 +13,7 @@
     "watch:js": "npm run build:js -- -w",
     "watch": "run-p watch:*",
     "clean": "rimraf app",
-    "serve": "browser-sync start --server 'app' --files 'app'",
+    "serve": "browser-sync start --server app --files app",
     "deploy": "gh-pages -d app",
     "start": "run-p watch serve"
   },
