@@ -12,6 +12,7 @@
     "watch:css": "npm run build:css -- -w",
     "watch:js": "npm run build:js -- -w",
     "watch": "npm-run-all --parallel watch:*",
+    "clean": "rimraf app",
     "serve": "browser-sync start --server 'app' --files 'app'",
     "deploy": "gh-pages -d app",
     "start": "npm-run-all --parallel watch serve"
@@ -34,6 +35,7 @@
     "npm-run-all": "^3.1.0",
     "postcss": "^5.2.0",
     "postcss-cli": "^2.6.0",
-    "postcss-cssnext": "^2.8.0"
+    "postcss-cssnext": "^2.8.0",
+    "rimraf": "^2.5.4"
   }
 }
