@@ -62,22 +62,25 @@ function onLoad() {
     document.addEventListener('keydown', e => {
         if (e.target === shinyText) return;
 
-        // focus
         switch (e.key) {
         case 'i':
         case 'e':
+            // focus input box
             shinyText.focus();
             break;
 
         case 'ArrowUp':
+            // brighten text
             brighten();
             break;
 
         case 'ArrowDown':
+            // darken text
             darken();
             break;
 
         case 's':
+            // spin text
             spin();
             break;
 
