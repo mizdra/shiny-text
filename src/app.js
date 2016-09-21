@@ -4,41 +4,31 @@ function onLoad() {
     const display = document.querySelector('.display');
     const shinyText = document.querySelector('.shiny-text');
 
-    function brighten() {
+    function contrast() {
         const classList = display.classList;
-        if (classList.contains('contrast-middle')) {
-            classList.remove('contrast-middle');
-            classList.add('contrast-bright');
-        } else if (classList.contains('contrast-dark')) {
-            classList.remove('contrast-dark');
-            classList.add('contrast-middle');
-        }
-    }
-
-    function darken() {
-        const classList = display.classList;
-        if (classList.contains('contrast-middle')) {
-            classList.remove('contrast-middle');
-            classList.add('contrast-dark');
-        } else if (classList.contains('contrast-bright')) {
-            classList.remove('contrast-bright');
-            classList.add('contrast-middle');
-        }
+        const contrastClass = Array.from(classList)
+            .filter(className => className.search(/^contrast-*/) !== -1)[0];
+        const map = {
+            'contrast-bright': 'contrast-dark',
+            'contrast-middle': 'contrast-bright',
+            'contrast-dark'  : 'contrast-middle',
+        };
+        classList.remove(contrastClass);
+        classList.add(map[contrastClass]);
     }
 
     function spin() {
         const classList = display.classList;
-        if (classList.contains('spin-fast')) {
-            classList.remove('spin-fast');
-        } else if (classList.contains('spin-middle')) {
-            classList.remove('spin-middle');
-            classList.add('spin-fast');
-        } else if (classList.contains('spin-slow')) {
-            classList.remove('spin-slow');
-            classList.add('spin-middle');
-        } else {
-            classList.add('spin-slow');
-        }
+        const contrastClass = Array.from(classList)
+            .filter(className => className.search(/^spin-*/) !== -1)[0];
+        const map = {
+            'spin-fast'  : '',
+            'spin-middle': 'spin-fast',
+            'spin-slow'  : 'spin-middle',
+            'undefined'  : 'spin-slow',
+        };
+        classList.remove(contrastClass);
+        classList.add(map[contrastClass]);
     }
 
     shinyText.addEventListener('keydown', e => {
@@ -69,14 +59,9 @@ function onLoad() {
             shinyText.focus();
             break;
 
-        case 'ArrowUp':
-            // brighten text
-            brighten();
-            break;
-
-        case 'ArrowDown':
-            // darken text
-            darken();
+        case 'c':
+            // Change contrast
+            contrast();
             break;
 
         case 's':
