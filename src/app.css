@@ -28,6 +28,14 @@ html, body {
             font-size: 50px;
         }
     }
+    
+    & .shiny-image {
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+        width: auto;
+    }
 }
 
 .contrast-bright {
@@ -50,6 +58,25 @@ html, body {
             0 0 190px #FFDD1B,
             0 0 200px #FFDD1B;
     }
+    
+    & .shiny-image {
+        box-shadow:
+            0 0 5px #FFDD1B,
+            0 0 10px #FFDD1B,
+            0 0 15px #FFDD1B,
+            0 0 30px #FFDD1B,
+            0 0 40px #FFDD1B,
+            0 0 50px #FFDD1B,
+            0 0 80px #FFDD1B,
+            0 0 110px #FFDD1B,
+            0 0 150px #FFDD1B,
+            0 0 170px #FFDD1B,
+            0 0 190px #FFDD1B,
+            0 0 190px #FFDD1B,
+            0 0 190px #FFDD1B,
+            0 0 200px #FFDD1B,
+            0 0 210px #FFDD1B;
+    }
 }
 
 .contrast-middle {
@@ -57,6 +84,20 @@ html, body {
 
     & .shiny-text {
         text-shadow:
+            0 0 5px #FFDD1B,
+            0 0 10px #FFDD1B,
+            0 0 15px #FFDD1B,
+            0 0 30px #FFDD1B,
+            0 0 40px #FFDD1B,
+            0 0 50px #FFDD1B,
+            0 0 80px #FFDD1B,
+            0 0 110px #FFDD1B,
+            0 0 150px #FFDD1B,
+            0 0 170px #FFDD1B;
+    }
+
+    & .shiny-image {
+        box-shadow:
             0 0 5px #FFDD1B,
             0 0 10px #FFDD1B,
             0 0 15px #FFDD1B,
@@ -80,17 +121,23 @@ html, body {
             0 0 30px #FFDD1B,
             0 0 50px #FFDD1B;
     }
+    
+    & .shiny-image {
+        box-shadow:
+        0 0 50px #FFDD1B,
+        0 0 90px #FFDD1B;
+    }
 }
 
-.spin-fast .shiny-text {
+.spin-fast .shiny-text, .spin-fast .shiny-image {
     animation: spin 0.5s linear infinite;
 }
 
-.spin-middle .shiny-text {
+.spin-middle .shiny-text, .spin-middle .shiny-image {
     animation: spin 0.75s linear infinite;
 }
 
-.spin-slow .shiny-text {
+.spin-slow .shiny-text, .spin-slow .shiny-image {
     animation: spin 2s linear infinite;
 }
 

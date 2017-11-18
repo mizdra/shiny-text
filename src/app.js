@@ -6,6 +6,7 @@ function onLoad () {
   const spinButton = document.querySelector('.spin-button')
   const display = document.querySelector('.display')
   const shinyText = document.querySelector('.shiny-text')
+  const shinyImage = document.querySelector('.shiny-image')
 
   function contrast () {
     const classList = display.classList
@@ -25,13 +26,29 @@ function onLoad () {
     const contrastClass = Array.from(classList)
       .filter(className => className.search(/^spin-*/) !== -1)[0]
     const map = {
-      'spin-fast': '',
+      'spin-fast': 'spin-off',
       'spin-middle': 'spin-fast',
       'spin-slow': 'spin-middle',
-      'undefined': 'spin-slow',
+      'spin-off': 'spin-slow',
     }
-    classList.remove(contrastClass)
     classList.add(map[contrastClass])
+    classList.remove(contrastClass)
+  }
+
+  function enableDropImage (ele, fn) {
+    ele.addEventListener('dragover', (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+      e.dataTransfer.dropEffect = 'copy'
+    }, false)
+    ele.addEventListener('drop', (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+
+      const imageType = /image.*/
+      const imgFiles = [...e.dataTransfer.files].filter(file => file.type.match(imageType))
+      fn(imgFiles)
+    }, false)
   }
 
   function edit () {
@@ -77,6 +94,17 @@ function onLoad () {
     default:
       e.preventDefault()
     }
+  })
+
+  enableDropImage(document.body, (files) => {
+    const file = files[0]
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      shinyImage.src = e.target.result
+    }
+    reader.readAsDataURL(file)
+    shinyText.classList.add('hidden')
+    shinyImage.classList.remove('hidden')
   })
 }
 
