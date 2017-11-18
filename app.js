@@ -105,6 +105,7 @@ function onLoad () {
     reader.readAsDataURL(file)
     shinyText.classList.add('hidden')
     shinyImage.classList.remove('hidden')
+    finishEditing()
   })
 }
 
